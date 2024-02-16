@@ -1,9 +1,11 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mevi.fakestore.core.ApiResponceStatus
+import com.mevi.fakestore.ui.fragments.data.CategoriesRepository
+import com.mevi.fakestore.ui.fragments.data.ProductsResponse
 import kotlinx.coroutines.launch
 
 class CategoriesViewModel : ViewModel() {

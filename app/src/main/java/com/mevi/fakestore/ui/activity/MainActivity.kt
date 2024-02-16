@@ -1,4 +1,4 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,8 @@ import androidx.core.view.isVisible
 import com.mevi.fakestore.R
 import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.databinding.ActivityMainBinding
+import com.mevi.fakestore.ui.fragments.CategoriesFragment
+import com.mevi.fakestore.ui.fragments.FavFragment
 
 class MainActivity : AppCompatActivity(), MainInterface {
     private lateinit var binding: ActivityMainBinding

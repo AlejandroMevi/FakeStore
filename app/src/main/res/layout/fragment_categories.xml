@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.CategoriesFragment">
+    tools:context=".ui.fragments.CategoriesFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear"

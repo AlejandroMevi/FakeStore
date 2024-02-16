@@ -1,10 +1,9 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,8 +13,8 @@ import com.google.gson.Gson
 import com.mevi.fakestore.R
 import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.core.ViewHolderGeneral
-import com.mevi.fakestore.databinding.ItemListCategoriesBinding
 import com.mevi.fakestore.databinding.ItemListProductsBinding
+import com.mevi.fakestore.ui.fragments.data.ProductsResponse
 
 class ListProductsdapter
     (

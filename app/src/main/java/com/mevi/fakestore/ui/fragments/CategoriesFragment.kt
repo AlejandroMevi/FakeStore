@@ -1,4 +1,4 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +10,10 @@ import com.google.android.material.card.MaterialCardView
 import com.mevi.fakestore.core.Constants
 import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.databinding.FragmentCategoriesBinding
+import com.mevi.fakestore.ui.fragments.vm.CategoriesViewModel
 
 
-class CategoriesFragment : Fragment(), ListCategoriesdapter.OnClickListener{
+class CategoriesFragment : Fragment(), ListCategoriesdapter.OnClickListener {
 
     private lateinit var binding: FragmentCategoriesBinding
     private val vm: CategoriesViewModel by activityViewModels()
