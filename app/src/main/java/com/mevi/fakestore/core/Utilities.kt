@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.mevi.fakestore.R
 import com.mevi.fakestore.ui.MainActivity
 import com.mevi.fakestore.ui.ProductsResponse
@@ -73,6 +75,15 @@ class Utilities {
 
 
         bottomSheetDialog.show()
+    }
+    fun convertirAJson(libros: ArrayList<ProductsResponse>): String {
+        val gson = Gson()
+        return gson.toJson(libros)
+    }
+    fun convertirDesdeJson(json: String): ArrayList<ProductsResponse> {
+        val gson = Gson()
+        val tipoLista = object : TypeToken<ArrayList<ProductsResponse>>() {}.type
+        return gson.fromJson(json, tipoLista)
     }
 
 }

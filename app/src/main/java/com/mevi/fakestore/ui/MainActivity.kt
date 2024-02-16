@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), MainInterface {
                 }
 
                 R.id.fav -> {
-                    Utilities().loadFragment(this, CategoriesFragment(), "Fav")
+                    Utilities().loadFragment(this, FavFragment(), "Fav")
                     true
                 }
 

@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.card.MaterialCardView
+import com.google.gson.Gson
 import com.mevi.fakestore.R
+import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.core.ViewHolderGeneral
 import com.mevi.fakestore.databinding.ItemListCategoriesBinding
 import com.mevi.fakestore.databinding.ItemListProductsBinding
@@ -22,7 +24,7 @@ class ListProductsdapter
 ) : RecyclerView.Adapter<ViewHolderGeneral<*>>() {
 
     companion object {
-        val productsFav = ArrayList<String>()
+        val productsFav = ArrayList<ProductsResponse>()
     }
 
     interface OnClickListener {
@@ -64,12 +66,41 @@ class ListProductsdapter
         override fun bind(item: ProductsResponse) {
             binding.titleProduct.text = item.title
             binding.price.text = "$ ${item.price}"
+            var isFilled = false
             Glide.with(context)
                 .load(item.image?.replace("http://", "https://"))
                 .placeholder(R.drawable.ic_generico)
                 .error(R.drawable.ic_generico)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.imageProduct)
+
+            binding.iconButton.setOnClickListener {
+
+                if (isFilled) {
+                    binding.iconButton.setIconResource(R.drawable.ic_favorite_border)
+
+                    val gson = Gson()
+                    val arrayListJson = gson.toJson(item)
+                    val sharedPreferences = context.getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.clear()
+                    editor.putString("miArrayListKey", arrayListJson)
+                    editor.apply()
+                } else {
+                    binding.iconButton.setIconResource(R.drawable.ic_favorite_)
+                    val sharedPreferences =
+                        context.getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.clear()
+
+                    productsFav.add(item)
+                    val librosSeleccionados: ArrayList<ProductsResponse> = productsFav
+                    val librosSeleccionadosJson = Utilities().convertirAJson(librosSeleccionados)
+                    editor.putString("productos_seleccionados", librosSeleccionadosJson)
+                    editor.apply()
+                }
+                isFilled = !isFilled
+            }
         }
     }
 }
