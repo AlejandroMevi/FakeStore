@@ -26,15 +26,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="InputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+
+    <style name="Title">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="hintTextColor">@color/principal</item>
-    </style>
-
-    <style name="RoundedButton">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.03</item>
     </style>
 </resources>

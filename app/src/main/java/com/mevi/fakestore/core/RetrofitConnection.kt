@@ -13,7 +13,7 @@ class RetrofitConnection() {
 
     init {
         val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
-        val url = "https://www.googleapis.com/books/v1/"
+        val url = "https://fakestoreapi.com/products/"
         val builder = Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create(gson))

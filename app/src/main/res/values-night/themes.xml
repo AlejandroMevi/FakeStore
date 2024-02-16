@@ -11,7 +11,7 @@
         <item name="android:layout_height">55dp</item>
         <item name="itemPaddingTop">5dp</item>
         <item name="itemPaddingBottom">5dp</item>
-        <item name="backgroundTint">@color/principal</item>
+        <item name="backgroundTint">@color/white</item>
         <item name="elevation">10dp</item>
     </style>
 
