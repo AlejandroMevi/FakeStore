@@ -7,20 +7,37 @@
     android:background="@color/white"
     tools:context=".ui.CategoriesFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView"
-        style="@style/Title"
-        android:layout_marginHorizontal="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_normal"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/color3"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="@string/categories"
+        android:background="@drawable/shape_welcome"
+        android:layout_margin="@dimen/margin_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_normal"
+            android:src="@drawable/eshop" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:text="@string/categories"
+            android:textSize="@dimen/text_title"
+            android:textAllCaps="true"
+            android:textColor="@color/toolbar"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listCategories"
@@ -31,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+        app:layout_constraintTop_toBottomOf="@+id/linear"
         tools:listitem="@layout/item_list_categories" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,15 @@ class CategoriesRepository {
     ): ApiResponceStatus<List<String>> {
         return makeNetworkCall {
             val response = autservice.create(CategoriesApieClient::class.java)
-                .searchBooks()
+                .categories()
+            //evaluateResponce(response.codigo.toString())
+            response
+        }
+    }
+    suspend fun products(category: String): ApiResponceStatus<List<ProductsResponse>> {
+        return makeNetworkCall {
+            val response = autservice.create(CategoriesApieClient::class.java)
+                .products(category)
             //evaluateResponce(response.codigo.toString())
             response
         }

@@ -34,4 +34,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">0.03</item>
     </style>
+
+    <style name="WhiteAccent" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorAccent">@color/white</item>
+    </style>
 </resources>

@@ -7,23 +7,30 @@ import android.view.animation.AnimationUtils
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.card.MaterialCardView
 import com.mevi.fakestore.R
 import com.mevi.fakestore.core.ViewHolderGeneral
 import com.mevi.fakestore.databinding.ItemListCategoriesBinding
+import com.mevi.fakestore.databinding.ItemListProductsBinding
 
-class ListCategoriesdapter
+class ListProductsdapter
     (
-    private val item: List<String>,
+    private val item: List<ProductsResponse>,
     private val itemClickListener: OnClickListener,
 ) : RecyclerView.Adapter<ViewHolderGeneral<*>>() {
 
+    companion object {
+        val productsFav = ArrayList<String>()
+    }
+
     interface OnClickListener {
-        fun onClick(item: String, position: Int, cardviewlista: MaterialCardView)
+        fun onClick(item: ProductsResponse, position: Int, cardviewlista: MaterialCardView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderGeneral<*> {
-        val itemBinding = ItemListCategoriesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding = ItemListProductsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val itemholder = ViewHolder(itemBinding, parent.context)
         itemBinding.root.setOnClickListener {
             val position =
@@ -52,37 +59,17 @@ class ListCategoriesdapter
     }
 
     override fun getItemCount(): Int = item.size
-    private inner class ViewHolder(val binding: ItemListCategoriesBinding, val context: Context) :
-        ViewHolderGeneral<String>(binding.root) {
-        override fun bind(item: String) {
-
-            when(item){
-                "electronics"->{
-                    with(binding){
-                        titleCategorie.text = context.getString(R.string.electronics)
-                        imageCategorie.setImageResource(R.drawable.electr)
-                    }
-                }
-                "jewelery"->{
-                    with(binding){
-                        titleCategorie.text = context.getString(R.string.jewelery)
-                        imageCategorie.setImageResource(R.drawable.jewelery)
-                    }
-
-                }
-                "men's clothing"->{
-                    with(binding){
-                        titleCategorie.text = context.getString(R.string.men_clothing)
-                        imageCategorie.setImageResource(R.drawable.men_clothing)
-                    }
-                }
-                "women's clothing"->{
-                    with(binding){
-                        titleCategorie.text = context.getString(R.string.woemn_clothing)
-                        imageCategorie.setImageResource(R.drawable.women_clothe)
-                    }
-                }
-            }
+    private inner class ViewHolder(val binding: ItemListProductsBinding, val context: Context) :
+        ViewHolderGeneral<ProductsResponse>(binding.root) {
+        override fun bind(item: ProductsResponse) {
+            binding.titleProduct.text = item.title
+            binding.price.text = "$ ${item.price}"
+            Glide.with(context)
+                .load(item.image?.replace("http://", "https://"))
+                .placeholder(R.drawable.ic_generico)
+                .error(R.drawable.ic_generico)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.imageProduct)
         }
     }
 }

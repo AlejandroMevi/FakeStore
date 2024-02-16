@@ -5,9 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.card.MaterialCardView
+import com.mevi.fakestore.core.Constants
+import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.databinding.FragmentCategoriesBinding
 
 
@@ -37,7 +38,6 @@ class CategoriesFragment : Fragment(), ListCategoriesdapter.OnClickListener{
     private fun addObservers() {
         vm.data.observe(viewLifecycleOwner) { response ->
             if (response != null) {
-                Toast.makeText(requireActivity(), response.toString(), Toast.LENGTH_SHORT).show()
                 setDataKardex(response as ArrayList<String>)
             }
 
@@ -46,9 +46,12 @@ class CategoriesFragment : Fragment(), ListCategoriesdapter.OnClickListener{
 
 
     private fun setDataKardex(listCategories: ArrayList<String>) {
-        binding.listCategories.adapter = ListCategoriesdapter(listCategories, viewLifecycleOwner, this)
+        binding.listCategories.adapter = ListCategoriesdapter(listCategories, this)
     }
 
     override fun onClick(item: String, position: Int, cardviewlista: MaterialCardView) {
+        val bundle = Bundle()
+        bundle.putString(Constants.ITEM, item)
+        Utilities().loadFragmentBundel(requireActivity(), ProductsFragment(), "WebView", bundle)
      }
 }

@@ -4,6 +4,7 @@ class Constants {
 
     companion object {
         const val URL = "https://fakestoreapi.com/products/"
+        const val ITEM = "item"
     }
 }
 

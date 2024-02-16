@@ -15,6 +15,11 @@ class CategoriesViewModel : ViewModel() {
 
     var data = MutableLiveData<List<String>?>(null)
         private set
+    var statusProducts = MutableLiveData<ApiResponceStatus<Any>?>(null)
+        private set
+
+    var dataProducts = MutableLiveData<List<ProductsResponse>?>(null)
+        private set
 
     fun getListCategories() {
         viewModelScope.launch {
@@ -24,6 +29,17 @@ class CategoriesViewModel : ViewModel() {
                 data.value = responce.data
             }
             status.value = responce as ApiResponceStatus<Any>
+        }
+    }
+
+    fun getProducts(category: String) {
+        viewModelScope.launch {
+            statusProducts.value = ApiResponceStatus.Loading()
+            val responce = repository.products(category)
+            if (responce is ApiResponceStatus.Success) {
+                dataProducts.value = responce.data
+            }
+            statusProducts.value = responce as ApiResponceStatus<Any>
         }
     }
 }
