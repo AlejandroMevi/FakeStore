@@ -1,10 +1,9 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.mevi.fakestore.R
 import com.mevi.fakestore.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

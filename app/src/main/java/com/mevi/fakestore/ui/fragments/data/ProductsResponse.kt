@@ -1,4 +1,4 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments.data
 
 data class ProductsResponse(
     val id: Int? = null,

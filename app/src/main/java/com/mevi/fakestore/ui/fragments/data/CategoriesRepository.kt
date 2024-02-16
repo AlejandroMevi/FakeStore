@@ -1,4 +1,4 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments.data
 
 import com.mevi.fakestore.core.ApiResponceStatus
 import com.mevi.fakestore.core.RetrofitConnection

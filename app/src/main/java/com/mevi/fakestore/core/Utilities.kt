@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.fragment.app.Fragment
@@ -15,8 +14,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.mevi.fakestore.R
-import com.mevi.fakestore.ui.MainActivity
-import com.mevi.fakestore.ui.ProductsResponse
+import com.mevi.fakestore.ui.activity.MainActivity
+import com.mevi.fakestore.ui.fragments.data.ProductsResponse
 
 
 class Utilities {

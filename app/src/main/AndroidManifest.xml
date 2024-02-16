@@ -16,7 +16,7 @@
         android:theme="@style/Theme.FakeStore"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait">
 

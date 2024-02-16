@@ -1,4 +1,4 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +13,9 @@ import com.mevi.fakestore.core.ApiResponceStatus
 import com.mevi.fakestore.core.Constants
 import com.mevi.fakestore.core.Utilities
 import com.mevi.fakestore.databinding.FragmentProductsBinding
+import com.mevi.fakestore.ui.activity.MainInterface
+import com.mevi.fakestore.ui.fragments.data.ProductsResponse
+import com.mevi.fakestore.ui.fragments.vm.CategoriesViewModel
 
 class ProductsFragment : Fragment(), ListProductsdapter.OnClickListener {
 

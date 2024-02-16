@@ -1,9 +1,8 @@
-package com.mevi.fakestore.ui
+package com.mevi.fakestore.ui.fragments.data
 
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface CategoriesApieClient {
 
